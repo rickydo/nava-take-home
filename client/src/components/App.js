@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import CreateHouseholdMember from '../components/HouseholdMember/new';
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
           <Link className="ds-u-color--white ds-u-text-decoration--none ds-u-font-weight--bold ds-u-font-size--2xl" to="/">Marketplace</Link>
         </header>
         <Switch>
+          <Route path="/householdmembers/new">
+            <CreateHouseholdMember />
+          </Route>
           <Route path="/">
             <Home />
           </Route>

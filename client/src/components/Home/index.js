@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../Spinner';
 import HouseholdMemberCard from '../HouseholdMemberCard';
 import { getHouseholdMembers } from './helpers';
@@ -33,10 +34,13 @@ const Home = () => {
         {
           renderHousehold()
         }
-        </div>
-      <button type="button" className="ds-c-button ds-c-button--inverse">
-        Add new member
-      </button>
+      </div>
+      <Link to="/householdmembers/new">
+        <button type="button" className="ds-c-button ds-c-button--inverse">
+          Add new member
+        </button>
+      </Link>
+      
   </div>
   )
 }

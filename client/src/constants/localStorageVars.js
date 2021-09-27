@@ -28,13 +28,6 @@ module.exports = {
       last_name: 'Do',
       description: 'Father',
       favorite_fruit: 'Mango'
-    },
-    {
-      id: 5,
-      first_name: 'Jax',
-      last_name: 'Do',
-      description: 'The furry one',
-      favorite_fruit: 'Dog treats'
     }
   ]
 }

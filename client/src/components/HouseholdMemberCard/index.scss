@@ -1,5 +1,11 @@
+// $small: 400px;
+// $medium: 900px;
+
 .card {
   border: 1px solid gray;
   height: 200px;
   width: 250px;
+  // @media screen and (max-width: $small) {
+  //   width: 100%;
+  // }
 }
