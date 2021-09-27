@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Nava Front End Take Home Exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. First install all the packages with yarn.
+```
+yarn install
+```
 
-## Available Scripts
+2. Then, run the app with yarn.
+```
+yarn start
+```
 
-In the project directory, you can run:
+3. When the application runs for the first time, it will check if there are any household members in localstorage. If not then it will populate with the members in my household.
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description 
+I chose to build the application using React via Create-React-App because I was familiar with React and this would get the app setup quickly. For styling I used **CMSGOV** and **Reactstrap** because it was a great way to learn a new styling library which had accepted standards for government applications. I have never personally used CMSGOV, but I did quickly review over the the library beforehand. I used Reactstrap because I currently use it in the projects I code for.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I did my best to stick with the wireframe because my it was the source of truth until the customers' opinions sway design decisions after MVP, or even during the building of MVP.
 
-### `yarn test`
+While working on this, I wasn't sure if I could pull in Bootstrap or even other styling libraries to get the styles and layout close enough to the mockup. Eventually, I decided to pull in Reactstrap towards the end so that I could have a more responsive form for adding new household members. If I had more time I probably would have used the Reactstrap classes for Card instead of creating one myself.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Removing a household member
+If I were to add the feature of removing household members I would add a delete button (red fill colored) on the cards of the household members. When the button is clicked it would take the user to a "confirmation" page which would display details of the household member. All fields would be disabled but visible and a user is able to go back or delete the member via buttons.
 
-### `yarn build`
+### Editing a household member
+Editing a household member would work similarly as deleting a member. An edit button would be visible on the member's card to the left of the delete button. Once clicked, a form is displayed allowing the user to edit the fields. Submitting the form should update the appropriate member.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Localstorage
+While I did create an API with a MySQL database to run with this app, I did not have the time to bring in Axios and tie the two together. Instead, localstorage was used so that it could replicated on other machines as well without the dependencies of runing a MySQL server. When finding or deleting members, I would have to construct functions to [].find the appropriate member in localstorage by member id.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Feedback
+This exercise was a good challenge. Not only was I able to expand my knowledge of the CMSGOV design library I did have a refresher on what it is like to start a new React from scratch. I found myself rushing through a lot of the code in order to get the app as close as possible to the mockup and found it little challenging to squeeze everything in. This is probably due to the back and forth I had with finding the appropriate CMS class names/format.
+This was fun!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
