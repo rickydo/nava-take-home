@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/index.scss';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import seedHousehold from './seedHousehold';
+import './styles/index.scss';
+
+console.log('loading.....')
+seedHousehold();
 
 ReactDOM.render(
   <React.StrictMode>
