@@ -2,15 +2,26 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../Spinner';
 import HouseholdMemberCard from '../HouseholdMemberCard';
-import { getHouseholdMembers } from './helpers';
+import Axios from 'axios';
+
+const url = 'https://2swdepm0wa.execute-api.us-east-1.amazonaws.com/prod/NavaInterview/household/members';
+
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(getHouseholdMembers());
-    setIsLoading(false);
+    const getHouseholdMembers = async () => {
+      await Axios.get(url).then((response) => {
+        console.log('getting members=', response);
+        setData(response.data.members);
+      }).catch((err) => {
+        console.error('Something bad happened!', err);
+      })
+      setIsLoading(false);
+    }
+    getHouseholdMembers();
   }, []);
 
   const renderHousehold = () => {
@@ -18,7 +29,7 @@ const Home = () => {
       return <Spinner spinnerClass="ds-c-spinner" screenReaderClass="ds-u-visibility--screen-reader" />;
     } else {
       if (data.length > 0) {
-        return data.map(m => <HouseholdMemberCard key={`householdMemberCard-${m.id}`} id={m.id} first_name={m.first_name} last_name={m.last_name} description={m.description} favorite_fruit={m.favorite_fruit} />);
+        return data.map(m => <HouseholdMemberCard key={`householdMemberCard-${m.firstName}`} first_name={m.firstName} last_name={m.lastName} description={m.description} favorite_fruit={m.favoriteFruit} />);
       } else {
         <h4>No members in the household</h4>;
       }

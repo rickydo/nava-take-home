@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import { withRouter } from 'react-router-dom';
-import { addHouseholdMember } from './helpers';
+// import { addHouseholdMember } from './helpers';
+import Axios from 'axios';
+
+const url = 'https://2swdepm0wa.execute-api.us-east-1.amazonaws.com/prod/NavaInterview/household/members/new';
+
 
 const CreateHouseholdMember = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -9,9 +13,19 @@ const CreateHouseholdMember = (props) => {
   const [description, setDescription] = useState("");
   const [favoriteFruit, setFavoriteFruit] = useState("");
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     console.log('adding new member!')
-    addHouseholdMember({ first_name: firstName, last_name: lastName, description, favorite_fruit: favoriteFruit });
+      await Axios.post(url, {
+        firstName,
+        lastName,
+        description,
+        favoriteFruit,
+      }).then(res => {
+        console.log('Success!', res);
+      })
+        .catch((err) => {
+        console.error('Could not create new household member', err)
+      });
     props.history.push("/");
   }
 
